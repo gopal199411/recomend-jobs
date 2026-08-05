@@ -1,96 +1,78 @@
 from django.urls import path
 
 from .views import (
-    JobListCreateAPIView,
-    JobDetailAPIView,
+    JobRecommendationGenerateAPIView,
     JobRecommendationListAPIView,
     JobRecommendationDetailAPIView,
-    JobRecommendationDeleteAPIView,
     JobRecommendationUpdateAPIView,
-    CandidateRecommendationHistoryAPIView,
-    SearchRecommendationAPIView,
-    JobRecommendationAPIView
+    JobRecommendationDeleteAPIView,
+    RecommendationHistoryAPIView,
 )
+
+
+app_name = "jos_recommend"
 
 
 urlpatterns = [
 
     # ==========================================
-    # Job CRUD API
+    # Generate Recommendations
+    # POST /api/recommendations/generate/
     # ==========================================
-
     path(
-        "jobs/",
-        JobListCreateAPIView.as_view(),
-        name="job-list-create"
+        "generate/",
+        JobRecommendationGenerateAPIView.as_view(),
+        name="generate-recommendation",
     ),
 
-    path(
-        "jobs/<int:pk>/",
-        JobDetailAPIView.as_view(),
-        name="job-detail"
-    ),
-
-
     # ==========================================
-    # Job Recommendation List / Detail / CRUD
+    # Recommendation List
+    # GET /api/recommendations/
     # ==========================================
-
     path(
-        "recommendations/",
+        "",
         JobRecommendationListAPIView.as_view(),
-        name="recommendation-list"
+        name="recommendation-list",
     ),
 
+    # ==========================================
+    # Recommendation Detail
+    # GET /api/recommendations/<id>/
+    # ==========================================
     path(
-        "recommendations/<int:pk>/",
+        "<int:pk>/",
         JobRecommendationDetailAPIView.as_view(),
-        name="recommendation-detail"
+        name="recommendation-detail",
     ),
 
+    # ==========================================
+    # Update Recommendation Status
+    # PATCH /api/recommendations/<id>/update/
+    # ==========================================
     path(
-        "recommendations/<int:pk>/delete/",
-        JobRecommendationDeleteAPIView.as_view(),
-        name="recommendation-delete"
-    ),
-
-    path(
-        "recommendations/<int:pk>/update/",
+        "<int:pk>/update/",
         JobRecommendationUpdateAPIView.as_view(),
-        name="recommendation-update"
+        name="recommendation-update",
     ),
 
-
     # ==========================================
-    # Candidate Recommendation History
+    # Delete Recommendation
+    # DELETE /api/recommendations/<id>/delete/
     # ==========================================
-
     path(
-        "candidates/<int:candidate_id>/recommendations/",
-        CandidateRecommendationHistoryAPIView.as_view(),
-        name="candidate-recommendation-history"
+        "<int:pk>/delete/",
+        JobRecommendationDeleteAPIView.as_view(),
+        name="recommendation-delete",
     ),
 
-
     # ==========================================
-    # Search Recommendations
+    # Logged-in User Recommendation History
+    # GET /api/recommendations/history/
     # ==========================================
-
     path(
-        "recommendations/search/",
-        SearchRecommendationAPIView.as_view(),
-        name="recommendation-search"
-    ),
-
-
-    # ==========================================
-    # Generate Skill-based Recommendations
-    # ==========================================
-
-    path(
-        "recommend/",
-        JobRecommendationAPIView.as_view(),
-        name="job-recommendation"
+        "history/",
+        RecommendationHistoryAPIView.as_view(),
+        name="recommendation-history",
     ),
 
 ]
