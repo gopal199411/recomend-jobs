@@ -1,7 +1,5 @@
 from pathlib import Path
 
-
-<<<<<<< HEAD
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -10,10 +8,6 @@ SECRET_KEY = 'django-insecure-!e=l%7)wwatw(njjw_3=-940!r$*6crdlobdhe28b^ourre6mw
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
-
-=======
 # Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,15 +18,12 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
->>>>>>> e2ad693 (commit msg)
+
 # ==========================
 # Applications
 # ==========================
 INSTALLED_APPS = [
-<<<<<<< HEAD
 
-=======
->>>>>>> e2ad693 (commit msg)
     # Django apps
     "django.contrib.admin",
     "django.contrib.auth",
@@ -41,28 +32,24 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-<<<<<<< HEAD
+
     # Third party
     "rest_framework",
     "rest_framework_simplejwt",
-=======
-    # Third-party apps
-    "rest_framework",
-    "rest_framework_simplejwt",
-    "rest_framework_simplejwt.token_blacklist",
->>>>>>> e2ad693 (commit msg)
+
 
     # Local apps
     "accounts",
+    "candidate",
     "recruiters",
+    "resume",
+    "job_description",
+    "jos_recommend",
 ]
 
 
 # Custom User Model
 AUTH_USER_MODEL = "accounts.User"
-
-
-<<<<<<< HEAD
 
 
 # ==========================
@@ -92,7 +79,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'candidateproject.urls'
 
-=======
+
 # ==========================
 # Middleware
 # ==========================
@@ -108,13 +95,13 @@ MIDDLEWARE = [
 
 
 ROOT_URLCONF = "candidateproject.urls"
->>>>>>> e2ad693 (commit msg)
+
 
 
 # ==========================
 # Templates
 # ==========================
-<<<<<<< HEAD
+
 
 TEMPLATES = [
     
@@ -154,7 +141,6 @@ WSGI_APPLICATION = 'candidateproject.wsgi.application'
 
 
 
-=======
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -172,13 +158,12 @@ TEMPLATES = [
 
 
 WSGI_APPLICATION = "candidateproject.wsgi.application"
->>>>>>> e2ad693 (commit msg)
+
 
 
 # ==========================
 # Database
 # ==========================
-<<<<<<< HEAD
 
 DATABASES = {
 
@@ -279,7 +264,7 @@ DEFAULT_FROM_EMAIL = (
 
 
 
-=======
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -338,12 +323,12 @@ EMAIL_HOST_USER = "airesumebuilderandscreeningsys@gmail.com"
 EMAIL_HOST_PASSWORD = "gdkdwhshswrbsjlc"
 
 DEFAULT_FROM_EMAIL = "AI Resume Builder and Screening System <airesumebuilderandscreeningsys@gmail.com>"
->>>>>>> e2ad693 (commit msg)
+
 
 # ==========================
 # Django REST Framework
 # ==========================
-<<<<<<< HEAD
+
 
 REST_FRAMEWORK = {
 
@@ -367,7 +352,7 @@ REST_FRAMEWORK = {
     ),
 
 }
-=======
+
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
@@ -380,4 +365,4 @@ REST_FRAMEWORK = {
 
 # Default primary key type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
->>>>>>> e2ad693 (commit msg)
+
